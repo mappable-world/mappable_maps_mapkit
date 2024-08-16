@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
   # Flutter dynamicaly lookup all symbols from executable, so we need for
   # all exported symbols will be available from executable.
   s.xcconfig = { 'OTHER_LDFLAGS' => '-ObjC -all_load' }
-  s.dependency 'MappableMapsMobile', mapkit_version
+  s.dependency 'MappableMobile', mapkit_version
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
