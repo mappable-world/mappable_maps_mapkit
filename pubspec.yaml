@@ -2,6 +2,7 @@ name: mappable_maps_mapkit
 description: Mappable MapKit SDK for Flutter. This allow you to use the capabilities
   of Mappable.Maps in your Flutter applications for iOS and Android
 version: 4.7.2-beta
+repository: https://github.com/mappable-world/mappable_maps_mapkit
 environment:
   sdk: ^3.1.0
   flutter: '>=3.13.1'
