@@ -246,8 +246,7 @@ class DrivingRouterImpl implements DrivingRouter, ffi.Finalizable {
     directions_driving_session.DrivingSessionRouteListener routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
   }) {
-    return directions_driving_session.DrivingSessionImpl.fromNativePtr(
-        _DrivingRouter_requestRoutes(
+    final result = _DrivingRouter_requestRoutes(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
@@ -256,7 +255,8 @@ class DrivingRouterImpl implements DrivingRouter, ffi.Finalizable {
           vehicleOptions),
       directions_driving_session.DrivingSessionRouteListenerImpl.getNativePtr(
           routeListener),
-    ));
+    );
+    return directions_driving_session.DrivingSessionImpl.fromNativePtr(result);
   }
 
   directions_driving_session.DrivingSummarySession requestRoutesSummary(
@@ -266,8 +266,7 @@ class DrivingRouterImpl implements DrivingRouter, ffi.Finalizable {
         summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
   }) {
-    return directions_driving_session.DrivingSummarySessionImpl.fromNativePtr(
-        _DrivingRouter_requestRoutesSummary(
+    final result = _DrivingRouter_requestRoutesSummary(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
@@ -276,7 +275,9 @@ class DrivingRouterImpl implements DrivingRouter, ffi.Finalizable {
           vehicleOptions),
       directions_driving_session.DrivingSummarySessionSummaryListenerImpl
           .getNativePtr(summaryListener),
-    ));
+    );
+    return directions_driving_session.DrivingSummarySessionImpl.fromNativePtr(
+        result);
   }
 }
 

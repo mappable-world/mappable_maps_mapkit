@@ -4,6 +4,8 @@ import 'package:mappable_maps_mapkit/src/bindings/common/library.dart' as lib;
 import 'dart:core' as core;
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
 import 'package:mappable_maps_mapkit/src/bindings/common/dispatcher.dart'
     as nativeBinding;
 import 'package:mappable_maps_mapkit/src/bindings/common/exception.dart'
@@ -57,6 +59,7 @@ abstract class StorageManager implements ffi.Finalizable {
   /// Obtains the current storage size limit in bytes.
   void maxTileStorageSize(StorageManagerSizeListener callback);
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 

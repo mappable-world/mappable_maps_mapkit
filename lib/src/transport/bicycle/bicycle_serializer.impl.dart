@@ -1,13 +1,14 @@
 part of 'bicycle_serializer.dart';
 
 typed_data.ByteBuffer _save(transport_bicycle_route.BicycleRoute route) {
-  return to_platform.toPlatformBytes(_BicycleRouteSerializer_save(
-      transport_bicycle_route.BicycleRouteImpl.getNativePtr(route)));
+  final result = _BicycleRouteSerializer_save(
+      transport_bicycle_route.BicycleRouteImpl.getNativePtr(route));
+  return to_platform.toPlatformBytes(result);
 }
 
 transport_bicycle_route.BicycleRoute _load(typed_data.ByteBuffer data) {
-  return transport_bicycle_route.BicycleRouteImpl.fromNativePtr(
-      _BicycleRouteSerializer_load(to_native.toNativeBytes(data)));
+  final result = _BicycleRouteSerializer_load(to_native.toNativeBytes(data));
+  return transport_bicycle_route.BicycleRouteImpl.fromNativePtr(result);
 }
 
 final native_types.NativeBytes Function(ffi.Pointer<ffi.Void>)

@@ -5,6 +5,8 @@ import 'dart:core' as core;
 import 'package:ffi/ffi.dart';
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
 import 'package:mappable_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:mappable_maps_mapkit/src/bindings/common/to_native.dart'
@@ -30,6 +32,7 @@ part 'driving_router.impl.dart';
 
 abstract class DrivingTooComplexAvoidedZonesError
     implements runtime_error.Error, ffi.Finalizable {
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 

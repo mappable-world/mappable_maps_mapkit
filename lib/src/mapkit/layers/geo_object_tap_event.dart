@@ -4,6 +4,10 @@ import 'package:mappable_maps_mapkit/src/bindings/common/library.dart' as lib;
 import 'dart:core' as core;
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
+import 'package:mappable_maps_mapkit/src/bindings/common/exception.dart'
+    as exception;
 import 'package:mappable_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:mappable_maps_mapkit/src/bindings/common/vector.dart' as vector;
@@ -20,5 +24,7 @@ part 'geo_object_tap_event.impl.dart';
 abstract class GeoObjectTapEvent implements ffi.Finalizable {
   /// Return GeoObject The object that was tapped.
   mapkit_geo_object.GeoObject get geoObject;
+
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

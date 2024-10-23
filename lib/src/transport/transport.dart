@@ -4,6 +4,10 @@ import 'package:mappable_maps_mapkit/src/bindings/common/library.dart' as lib;
 import 'dart:core' as core;
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
+import 'package:mappable_maps_mapkit/src/bindings/common/exception.dart'
+    as exception;
 import 'package:mappable_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:mappable_maps_mapkit/src/bindings/common/vector.dart' as vector;
@@ -51,6 +55,12 @@ abstract class Transport implements ffi.Finalizable {
   /// destination points.
   transport_masstransit_bicycle_router_v2.BicycleRouterV2 createScooterRouter();
 
+  /// Creates a manager that builds electric bike routes using the origin
+  /// and destination points.
+  transport_masstransit_bicycle_router_v2.BicycleRouterV2
+      createElectricBikeRouter();
+
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 

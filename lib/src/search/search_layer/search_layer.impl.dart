@@ -305,12 +305,15 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
 
   @core.override
   core.bool get visible {
-    return _SearchLayer_get_visible(ptr);
+    final result = _SearchLayer_get_visible(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   @core.override
   set visible(core.bool val) {
     _SearchLayer_set_visible(ptr, val);
+    exception.checkCallResult();
   }
 
   void submitQuery(
@@ -322,6 +325,7 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
       to_native.toNativeString(query),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
     );
+    exception.checkCallResult();
   }
 
   void submitQueryWithGeometry(
@@ -335,6 +339,7 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
       mapkit_geometry_geometry.GeometryImpl.toNative(geometry),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
     );
+    exception.checkCallResult();
   }
 
   void searchByUri(
@@ -346,81 +351,99 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
       to_native.toNativeString(uri),
       search_search_options.SearchOptionsImpl.toNative(searchOptions),
     );
+    exception.checkCallResult();
   }
 
   void resubmit() {
     _SearchLayer_resubmit(ptr);
+    exception.checkCallResult();
   }
 
   void enableRequestsOnMapMoves(core.bool enable) {
     _SearchLayer_enableRequestsOnMapMoves(ptr, enable);
+    exception.checkCallResult();
   }
 
   void enableMapMoveOnSearchResponse(core.bool enable) {
     _SearchLayer_enableMapMoveOnSearchResponse(ptr, enable);
+    exception.checkCallResult();
   }
 
   core.bool hasNextPage() {
-    return _SearchLayer_hasNextPage(ptr);
+    final result = _SearchLayer_hasNextPage(ptr);
+    exception.checkCallResult();
+    return result;
   }
 
   void fetchNextPage() {
     _SearchLayer_fetchNextPage(ptr);
+    exception.checkCallResult();
   }
 
   void clear() {
     _SearchLayer_clear(ptr);
+    exception.checkCallResult();
   }
 
   core.List<search_search_layer_search_result_item.SearchResultItem>
       getSearchResultsList() {
+    final result = _SearchLayer_getSearchResultsList(ptr);
+    exception.checkCallResult();
     return search_search_layer_search_result_item
-            .SearchResultItemContainerExtension
-        .toPlatformVector(_SearchLayer_getSearchResultsList(ptr));
+        .SearchResultItemContainerExtension.toPlatformVector(result);
   }
 
   search_search_metadata.SearchMetadata? searchMetadata() {
-    return search_search_metadata.SearchMetadataImpl.fromOptionalPtr(
-        _SearchLayer_searchMetadata(ptr));
+    final result = _SearchLayer_searchMetadata(ptr);
+    exception.checkCallResult();
+    return search_search_metadata.SearchMetadataImpl.fromOptionalPtr(result);
   }
 
   void setSearchManager(search_search_manager.SearchManager searchManager) {
     _SearchLayer_setSearchManager(ptr,
         search_search_manager.SearchManagerImpl.getNativePtr(searchManager));
+    exception.checkCallResult();
   }
 
   void addSearchResultListener(SearchResultListener searchResultListener) {
     _SearchLayer_addSearchResultListener(
         ptr, SearchResultListenerImpl.getNativePtr(searchResultListener));
+    exception.checkCallResult();
   }
 
   void removeSearchResultListener(SearchResultListener searchResultListener) {
     _SearchLayer_removeSearchResultListener(
         ptr, SearchResultListenerImpl.getNativePtr(searchResultListener));
+    exception.checkCallResult();
   }
 
   void addPlacemarkListener(PlacemarkListener placemarkListener) {
     _SearchLayer_addPlacemarkListener(
         ptr, PlacemarkListenerImpl.getNativePtr(placemarkListener));
+    exception.checkCallResult();
   }
 
   void removePlacemarkListener(PlacemarkListener placemarkListener) {
     _SearchLayer_removePlacemarkListener(
         ptr, PlacemarkListenerImpl.getNativePtr(placemarkListener));
+    exception.checkCallResult();
   }
 
   void setSortByDistance(mapkit_geometry_geometry.Geometry origin) {
     _SearchLayer_setSortByDistance(
         ptr, mapkit_geometry_geometry.GeometryImpl.toNative(origin));
+    exception.checkCallResult();
   }
 
   void setPolylinePosition(mapkit_geometry_geometry.PolylinePosition position) {
     _SearchLayer_setPolylinePosition(
         ptr, mapkit_geometry_geometry.PolylinePositionImpl.toNative(position));
+    exception.checkCallResult();
   }
 
   void resetSort() {
     _SearchLayer_resetSort(ptr);
+    exception.checkCallResult();
   }
 
   void setFilterCollection(
@@ -429,6 +452,7 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
         ptr,
         search_filter_collection.SearchFilterCollectionImpl.getNativePtr(
             filters));
+    exception.checkCallResult();
   }
 
   void setFilters(
@@ -437,6 +461,7 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
         ptr,
         search_business_filter.SearchBusinessFilterContainerExtension
             .toNativeVector(filters));
+    exception.checkCallResult();
   }
 
   void setAssetsProvider(
@@ -445,23 +470,28 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
         ptr,
         search_search_layer_assets_provider.AssetsProviderImpl.getNativePtr(
             provider));
+    exception.checkCallResult();
   }
 
   void resetAssetsProvider() {
     _SearchLayer_resetAssetsProvider(ptr);
+    exception.checkCallResult();
   }
 
   void selectPlacemark(core.String geoObjectId) {
     _SearchLayer_selectPlacemark(ptr, to_native.toNativeString(geoObjectId));
+    exception.checkCallResult();
   }
 
   core.String? selectedPlacemarkId() {
-    return to_platform
-        .toPlatformFromPointerString(_SearchLayer_selectedPlacemarkId(ptr));
+    final result = _SearchLayer_selectedPlacemarkId(ptr);
+    exception.checkCallResult();
+    return to_platform.toPlatformFromPointerString(result);
   }
 
   void deselectPlacemark() {
     _SearchLayer_deselectPlacemark(ptr);
+    exception.checkCallResult();
   }
 
   void forceUpdateIcon(
@@ -477,14 +507,17 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
       to_native.toNativeImageProvider(image),
       mapkit_map_icon_style.IconStyleImpl.toNative(style),
     );
+    exception.checkCallResult();
   }
 
   void forceUpdateMapObjects() {
     _SearchLayer_forceUpdateMapObjects(ptr);
+    exception.checkCallResult();
   }
 
   void obtainAdIcons(core.bool enable) {
     _SearchLayer_obtainAdIcons(ptr, enable);
+    exception.checkCallResult();
   }
 
   void setInsets({
@@ -494,6 +527,7 @@ class SearchLayerImpl implements SearchLayer, ffi.Finalizable {
     required core.int right,
   }) {
     _SearchLayer_setInsets(ptr, top, left, bottom, right);
+    exception.checkCallResult();
   }
 }
 

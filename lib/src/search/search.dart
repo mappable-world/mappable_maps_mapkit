@@ -4,6 +4,10 @@ import 'package:mappable_maps_mapkit/src/bindings/common/library.dart' as lib;
 import 'dart:core' as core;
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
+import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
+    show runWithBlockUi;
+import 'package:mappable_maps_mapkit/src/bindings/common/exception.dart'
+    as exception;
 import 'package:mappable_maps_mapkit/src/bindings/common/string_map.dart'
     as string_map;
 import 'package:mappable_maps_mapkit/src/bindings/common/vector.dart' as vector;
@@ -30,6 +34,7 @@ abstract class Search implements ffi.Finalizable {
   search_search_manager.SearchManager createSearchManager(
       search_search_manager.SearchManagerType searchManagerType);
 
+  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
 

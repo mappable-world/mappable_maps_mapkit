@@ -166,79 +166,84 @@ class BicycleRouteImpl implements BicycleRoute, ffi.Finalizable {
 
   @core.override
   transport_bicycle_weight.BicycleWeight get weight {
-    return transport_bicycle_weight.BicycleWeightImpl.fromNative(
-        _Route_get_weight(ptr));
+    final result = _Route_get_weight(ptr);
+    return transport_bicycle_weight.BicycleWeightImpl.fromNative(result);
   }
 
   @core.override
   core.List<transport_bicycle_section.BicycleSection> get sections {
+    final result = _Route_get_sections(ptr);
     return transport_bicycle_section.BicycleSectionContainerExtension
-        .toPlatformVector(_Route_get_sections(ptr));
+        .toPlatformVector(result);
   }
 
   @core.override
   core.List<transport_bicycle_leg.BicycleLeg> get legs {
+    final result = _Route_get_legs(ptr);
     return transport_bicycle_leg.BicycleLegContainerExtension.toPlatformVector(
-        _Route_get_legs(ptr));
+        result);
   }
 
   @core.override
   mapkit_geometry_geometry.Polyline get geometry {
-    return mapkit_geometry_geometry.PolylineImpl.fromNativePtr(
-        _Route_get_geometry(ptr));
+    final result = _Route_get_geometry(ptr);
+    return mapkit_geometry_geometry.PolylineImpl.fromNativePtr(result);
   }
 
   @core.override
   transport_bicycle_flags.BicycleFlags? get flags {
-    return transport_bicycle_flags.BicycleFlagsImpl.fromPointer(
-        _Route_get_flags(ptr));
+    final result = _Route_get_flags(ptr);
+    return transport_bicycle_flags.BicycleFlagsImpl.fromPointer(result);
   }
 
   @core.override
   core.List<BicycleConstructionSegment> get constructions {
+    final result = _Route_get_constructions(ptr);
     return BicycleConstructionSegmentContainerExtension.toPlatformVector(
-        _Route_get_constructions(ptr));
+        result);
   }
 
   @core.override
   core.List<BicycleTrafficTypeSegment> get trafficTypes {
-    return BicycleTrafficTypeSegmentContainerExtension.toPlatformVector(
-        _Route_get_trafficTypes(ptr));
+    final result = _Route_get_trafficTypes(ptr);
+    return BicycleTrafficTypeSegmentContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<transport_bicycle_restricted_entry.BicycleRestrictedEntry>
       get restrictedEntries {
+    final result = _Route_get_restrictedEntries(ptr);
     return transport_bicycle_restricted_entry
-            .BicycleRestrictedEntryContainerExtension
-        .toPlatformVector(_Route_get_restrictedEntries(ptr));
+        .BicycleRestrictedEntryContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<transport_bicycle_intermediate_points.BicycleViaPoint>
       get viaPoints {
+    final result = _Route_get_viaPoints(ptr);
     return transport_bicycle_intermediate_points
-            .BicycleViaPointContainerExtension
-        .toPlatformVector(_Route_get_viaPoints(ptr));
+        .BicycleViaPointContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   core.List<transport_bicycle_intermediate_points.BicycleWayPoint>
       get wayPoints {
+    final result = _Route_get_wayPoints(ptr);
     return transport_bicycle_intermediate_points
-            .BicycleWayPointContainerExtension
-        .toPlatformVector(_Route_get_wayPoints(ptr));
+        .BicycleWayPointContainerExtension.toPlatformVector(result);
   }
 
   @core.override
   mapkit_uri_uri_object_metadata.UriObjectMetadata get uriMetadata {
+    final result = _Route_get_uriMetadata(ptr);
     return mapkit_uri_uri_object_metadata.UriObjectMetadataImpl.fromNativePtr(
-        _Route_get_uriMetadata(ptr));
+        result);
   }
 
   @core.override
   core.String? get routeId {
-    return to_platform.toPlatformFromPointerString(_Route_get_routeId(ptr));
+    final result = _Route_get_routeId(ptr);
+    return to_platform.toPlatformFromPointerString(result);
   }
 }
 

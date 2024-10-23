@@ -37,40 +37,42 @@ class MasstransitRouterImpl implements MasstransitRouter, ffi.Finalizable {
 
   transport_masstransit_session.MasstransitSession requestRoutes(
     transport_masstransit_transit_options.TransitOptions transitOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.RouteHandler routeListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   }) {
-    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
-        _MasstransitRouter_requestRoutes(
+    final result = _MasstransitRouter_requestRoutes(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
       transport_masstransit_transit_options.TransitOptionsImpl.toNative(
           transitOptions),
-      avoidSteep,
+      transport_masstransit_options.RouteOptionsImpl.toNative(routeOptions),
       transport_masstransit_session.RouteHandlerImpl.getNativePtr(
           routeListener),
-    ));
+    );
+    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
+        result);
   }
 
   transport_masstransit_session.MasstransitSummarySession requestRoutesSummary(
     transport_masstransit_transit_options.TransitOptions transitOptions,
+    transport_masstransit_options.RouteOptions routeOptions,
     transport_masstransit_session.SummaryHandler summaryListener, {
     required core.List<mapkit_request_point.RequestPoint> points,
-    required core.bool avoidSteep,
   }) {
-    return transport_masstransit_session.MasstransitSummarySessionImpl
-        .fromNativePtr(_MasstransitRouter_requestRoutesSummary(
+    final result = _MasstransitRouter_requestRoutesSummary(
       ptr,
       mapkit_request_point.RequestPointContainerExtension.toNativeVector(
           points),
       transport_masstransit_transit_options.TransitOptionsImpl.toNative(
           transitOptions),
-      avoidSteep,
+      transport_masstransit_options.RouteOptionsImpl.toNative(routeOptions),
       transport_masstransit_session.SummaryHandlerImpl.getNativePtr(
           summaryListener),
-    ));
+    );
+    return transport_masstransit_session.MasstransitSummarySessionImpl
+        .fromNativePtr(result);
   }
 
   transport_masstransit_session.MasstransitSession resolveUri(
@@ -78,20 +80,22 @@ class MasstransitRouterImpl implements MasstransitRouter, ffi.Finalizable {
     transport_masstransit_session.RouteHandler routeListener, {
     required core.String uri,
   }) {
-    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
-        _MasstransitRouter_resolveUri(
+    final result = _MasstransitRouter_resolveUri(
       ptr,
       to_native.toNativeString(uri),
       transport_masstransit_options.TimeOptionsImpl.toNative(timeOptions),
       transport_masstransit_session.RouteHandlerImpl.getNativePtr(
           routeListener),
-    ));
+    );
+    return transport_masstransit_session.MasstransitSessionImpl.fromNativePtr(
+        result);
   }
 
   transport_masstransit_serializer.MasstransitRouteSerializer
       routeSerializer() {
+    final result = _MasstransitRouter_routeSerializer(ptr);
     return transport_masstransit_serializer.MasstransitRouteSerializerImpl
-        .fromNativePtr(_MasstransitRouter_routeSerializer(ptr));
+        .fromNativePtr(result);
   }
 }
 
@@ -103,7 +107,7 @@ final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
     transport_masstransit_transit_options.TransitOptionsNative,
-    core.bool,
+    transport_masstransit_options.RouteOptionsNative,
     ffi
         .Pointer<ffi.Void>) _MasstransitRouter_requestRoutes = lib.library
     .lookup<
@@ -112,7 +116,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     transport_masstransit_transit_options.TransitOptionsNative,
-                    ffi.Bool,
+                    transport_masstransit_options.RouteOptionsNative,
                     ffi.Pointer<ffi.Void>)>>(
         'mappable_flutter_transport_masstransit_MasstransitRouter_requestRoutes')
     .asFunction();
@@ -120,7 +124,7 @@ final ffi.Pointer<ffi.Void> Function(
     ffi.Pointer<ffi.Void>,
     ffi.Pointer<ffi.Void>,
     transport_masstransit_transit_options.TransitOptionsNative,
-    core.bool,
+    transport_masstransit_options.RouteOptionsNative,
     ffi
         .Pointer<ffi.Void>) _MasstransitRouter_requestRoutesSummary = lib
     .library
@@ -130,7 +134,7 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void>,
                     ffi.Pointer<ffi.Void>,
                     transport_masstransit_transit_options.TransitOptionsNative,
-                    ffi.Bool,
+                    transport_masstransit_options.RouteOptionsNative,
                     ffi.Pointer<ffi.Void>)>>(
         'mappable_flutter_transport_masstransit_MasstransitRouter_requestRoutesSummary')
     .asFunction();
