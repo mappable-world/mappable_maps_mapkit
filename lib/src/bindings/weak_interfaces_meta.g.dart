@@ -56,6 +56,15 @@ import 'package:mappable_maps_mapkit/src/mapkit/traffic/traffic_layer.dart'
     as mapkit;
 import 'package:mappable_maps_mapkit/src/mapkit/user_location/user_location.dart'
     as mapkit;
+import 'package:mappable_maps_mapkit/src/places/mrc/mrc_photo_player.dart'
+    as places;
+import 'package:mappable_maps_mapkit/src/places/mrc/mrc_photo_track_player.dart'
+    as places;
+import 'package:mappable_maps_mapkit/src/places/panorama/errors.dart' as places;
+import 'package:mappable_maps_mapkit/src/places/panorama/panorama_layer.dart'
+    as places;
+import 'package:mappable_maps_mapkit/src/places/panorama/player.dart' as places;
+import 'package:mappable_maps_mapkit/src/places/places.dart' as places;
 import 'package:mappable_maps_mapkit/src/runtime/error.dart' as runtime;
 import 'package:mappable_maps_mapkit/src/runtime/i18n/i18n_manager.dart'
     as runtime;
@@ -134,6 +143,14 @@ const weakInterfacesMeta = {
       mapkit.UserLocationLayerImpl.fromNativePtrImpl,
   'mapkit.user_location.UserLocationView':
       mapkit.UserLocationViewImpl.fromNativePtrImpl,
+  'places.Places': places.PlacesImpl.fromNativePtrImpl,
+  'places.mrc.MrcPhotoPlayer': places.MrcPhotoPlayerImpl.fromNativePtrImpl,
+  'places.mrc.MrcPhotoTrackPlayer':
+      places.MrcPhotoTrackPlayerImpl.fromNativePtrImpl,
+  'places.panorama.NotFoundError':
+      places.PanoramaNotFoundErrorImpl.fromNativePtrImpl,
+  'places.panorama.PanoramaLayer': places.PanoramaLayerImpl.fromNativePtrImpl,
+  'places.panorama.Player': places.PanoramaPlayerImpl.fromNativePtrImpl,
   'runtime.DiskCorruptError': runtime.DiskCorruptErrorImpl.fromNativePtrImpl,
   'runtime.DiskFullError': runtime.DiskFullErrorImpl.fromNativePtrImpl,
   'runtime.DiskWriteAccessError':
