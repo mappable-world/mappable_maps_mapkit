@@ -4,7 +4,7 @@ part of 'suggest_response.dart';
     toNative: 'SuggestItemImpl.getNativePtr',
     toPlatform: '(val) => SuggestItemImpl.fromPointer(val, needFree: false)',
     platformType: 'SuggestItem')
-final class SuggestItemImpl implements SuggestItem {
+final class SuggestItemImpl extends SuggestItem {
   SuggestItemImpl(
       SuggestItemType type,
       mapkit_spannable_string.SpannableString title,
@@ -95,7 +95,7 @@ final class SuggestItemImpl implements SuggestItem {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SuggestItem_free.cast());
 
-  SuggestItemImpl.fromNativePtr(this._ptr) {
+  SuggestItemImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -128,45 +128,46 @@ final _SuggestItem_free = lib.library
         'mappable_flutter_search_SuggestItem_free');
 
 final ffi.Pointer<ffi.Void> Function(
-    core.int,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    native_types.NativeString,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    core.bool,
-    core.int,
-    ffi.Pointer<ffi.Void>,
-    core.bool,
-    core.bool,
-    ffi.Pointer<ffi.Void>,
-    ffi.Pointer<ffi.Void>,
-    ffi
-        .Pointer<ffi.Void>) _SuggestItem_init = lib.library
-    .lookup<
-        ffi.NativeFunction<
-            ffi.Pointer<ffi.Void> Function(
-                ffi.Int64,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                native_types.NativeString,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool,
-                ffi.Int64,
-                ffi.Pointer<ffi.Void>,
-                ffi.Bool,
-                ffi.Bool,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>,
-                ffi.Pointer<ffi.Void>)>>('mappable_flutter_search_SuggestItem_init')
-    .asFunction(isLeaf: true);
+        core.int,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        native_types.NativeString,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        core.bool,
+        core.int,
+        ffi.Pointer<ffi.Void>,
+        core.bool,
+        core.bool,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>) _SuggestItem_init =
+    lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Int64,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        native_types.NativeString,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Bool,
+                        ffi.Int64,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Bool,
+                        ffi.Bool,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>)>>(
+            'mappable_flutter_search_SuggestItem_init')
+        .asFunction(isLeaf: true);
 
 final core.int Function(ffi.Pointer<ffi.Void>) _SuggestItem_get_type = lib
     .library
@@ -400,7 +401,7 @@ extension SuggestItemBusinessContextImpl on SuggestItemBusinessContext {
     toPlatform:
         '(val) => SuggestResponseImpl.fromPointer(val, needFree: false)',
     platformType: 'SuggestResponse')
-final class SuggestResponseImpl implements SuggestResponse {
+final class SuggestResponseImpl extends SuggestResponse {
   SuggestResponseImpl(core.List<SuggestItem> items)
       : this.fromNativePtr(_SuggestResponse_init(
             SuggestItemContainerExtension.toNativeVector(items)));
@@ -412,7 +413,7 @@ final class SuggestResponseImpl implements SuggestResponse {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SuggestResponse_free.cast());
 
-  SuggestResponseImpl.fromNativePtr(this._ptr) {
+  SuggestResponseImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

@@ -104,6 +104,11 @@ class MapKitImpl implements MapKit, ffi.Finalizable {
     exception.checkCallResult();
   }
 
+  void onTerminate() {
+    _MapKit_onTerminate(ptr);
+    exception.checkCallResult();
+  }
+
   mapkit_location_location_manager.LocationManager createLocationManager() {
     final result = _MapKit_createLocationManager(ptr);
     exception.checkCallResult();
@@ -153,6 +158,26 @@ class MapKitImpl implements MapKit, ffi.Finalizable {
         ptr, to_native.toNativePlatformView(platformView), customScaleFactor);
     exception.checkCallResult();
     return mapkit_map_map_window.MapWindowImpl.fromNativePtr(result);
+  }
+
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindow({
+    required core.int width,
+    required core.int height,
+  }) {
+    final result = _MapKit_createOffscreenMapWindow(ptr, width, height);
+    exception.checkCallResult();
+    return mapkit_map_map_window.OffscreenMapWindowImpl.fromNativePtr(result);
+  }
+
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindowWithScale({
+    required core.int width,
+    required core.int height,
+    required core.double customScaleFactor,
+  }) {
+    final result = _MapKit_createOffscreenMapWindowWithScale(
+        ptr, width, height, customScaleFactor);
+    exception.checkCallResult();
+    return mapkit_map_map_window.OffscreenMapWindowImpl.fromNativePtr(result);
   }
 
   mapkit_traffic_traffic_layer.TrafficLayer createTrafficLayer(
@@ -250,6 +275,10 @@ final void Function(ffi.Pointer<ffi.Void>) _MapKit_onStop = lib.library
     .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
         'mappable_flutter_mapkit_MapKit_onStop')
     .asFunction();
+final void Function(ffi.Pointer<ffi.Void>) _MapKit_onTerminate = lib.library
+    .lookup<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>(
+        'mappable_flutter_mapkit_MapKit_onTerminate')
+    .asFunction();
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     _MapKit_createLocationManager = lib.library
         .lookup<
@@ -299,6 +328,23 @@ final ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>, ffi.Float)>>(
             'mappable_flutter_mapkit_MapKit_createMapWindowWithScale')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>, core.int, core.int)
+    _MapKit_createOffscreenMapWindow = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int)>>(
+            'mappable_flutter_mapkit_MapKit_createOffscreenMapWindow')
+        .asFunction();
+final ffi.Pointer<ffi.Void> Function(
+        ffi.Pointer<ffi.Void>, core.int, core.int, core.double)
+    _MapKit_createOffscreenMapWindowWithScale = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.Void>, ffi.Int, ffi.Int, ffi.Float)>>(
+            'mappable_flutter_mapkit_MapKit_createOffscreenMapWindowWithScale')
         .asFunction();
 final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)

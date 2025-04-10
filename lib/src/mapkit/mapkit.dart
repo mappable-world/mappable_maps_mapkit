@@ -4,8 +4,6 @@ import 'package:mappable_maps_mapkit/src/bindings/common/library.dart' as lib;
 import 'dart:core' as core;
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
-import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
-    show runWithBlockUi;
 import 'package:mappable_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
 import 'package:mappable_maps_mapkit/src/bindings/common/native_types.dart'
@@ -100,6 +98,9 @@ abstract class MapKit implements ffi.Finalizable {
   /// background.
   void onStop();
 
+  /// Notifies MapKit when the application will terminate.
+  void onTerminate();
+
   /// Creates a manager that allows to listen for device location updates.
   mapkit_location_location_manager.LocationManager createLocationManager();
 
@@ -137,6 +138,20 @@ abstract class MapKit implements ffi.Finalizable {
     required core.double customScaleFactor,
   });
 
+  /// Creates an OffscreenMapWindow
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindow({
+    required core.int width,
+    required core.int height,
+  });
+
+  /// Creates an OffscreenMapWindow with custom scale factor The scale
+  /// factor is equal to the number of pixels per device-independent point.
+  mapkit_map_map_window.OffscreenMapWindow createOffscreenMapWindowWithScale({
+    required core.int width,
+    required core.int height,
+    required core.double customScaleFactor,
+  });
+
   /// Creates the traffic layer.
   mapkit_traffic_traffic_layer.TrafficLayer createTrafficLayer(
       mapkit_map_map_window.MapWindow mapWindow);
@@ -149,6 +164,5 @@ abstract class MapKit implements ffi.Finalizable {
   mapkit_user_location_user_location.UserLocationLayer createUserLocationLayer(
       mapkit_map_map_window.MapWindow mapWindow);
 
-  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }

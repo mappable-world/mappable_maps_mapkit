@@ -836,7 +836,7 @@ extension MasstransitElevationPointImpl on MasstransitElevationPoint {
     toPlatform:
         '(val) => MasstransitElevationDataImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitElevationData')
-final class MasstransitElevationDataImpl implements MasstransitElevationData {
+final class MasstransitElevationDataImpl extends MasstransitElevationData {
   MasstransitElevationDataImpl(
       mapkit_localized_value.LocalizedValue totalAscent,
       mapkit_localized_value.LocalizedValue totalDescent,
@@ -881,7 +881,7 @@ final class MasstransitElevationDataImpl implements MasstransitElevationData {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitElevationData_free.cast());
 
-  MasstransitElevationDataImpl.fromNativePtr(this._ptr) {
+  MasstransitElevationDataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1267,7 +1267,7 @@ final MasstransitIndoorSegmentIndoorDataNative Function(
     toPlatform:
         '(val) => MasstransitFitnessImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitFitness')
-final class MasstransitFitnessImpl implements MasstransitFitness {
+final class MasstransitFitnessImpl extends MasstransitFitness {
   MasstransitFitnessImpl(
       MasstransitFitnessType type,
       core.List<MasstransitConstructionSegment> constructions,
@@ -1333,7 +1333,7 @@ final class MasstransitFitnessImpl implements MasstransitFitness {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitFitness_free.cast());
 
-  MasstransitFitnessImpl.fromNativePtr(this._ptr) {
+  MasstransitFitnessImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1461,7 +1461,7 @@ final ffi.Pointer<ffi.Void> Function(
         '(val) => MasstransitRouteStopMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitRouteStopMetadata')
 final class MasstransitRouteStopMetadataImpl
-    implements MasstransitRouteStopMetadata {
+    extends MasstransitRouteStopMetadata {
   MasstransitRouteStopMetadataImpl(
       transport_masstransit_common.MasstransitStop stop,
       transport_masstransit_common.MasstransitStop? stopExit,
@@ -1492,7 +1492,7 @@ final class MasstransitRouteStopMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitRouteStopMetadata_free.cast());
 
-  MasstransitRouteStopMetadataImpl.fromNativePtr(this._ptr) {
+  MasstransitRouteStopMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1622,7 +1622,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => MasstransitRouteStopImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitRouteStop')
-final class MasstransitRouteStopImpl implements MasstransitRouteStop {
+final class MasstransitRouteStopImpl extends MasstransitRouteStop {
   MasstransitRouteStopImpl(MasstransitRouteStopMetadata metadata,
       mapkit_geometry_point.Point position)
       : this.fromNativePtr(_MasstransitRouteStop_init(
@@ -1640,7 +1640,7 @@ final class MasstransitRouteStopImpl implements MasstransitRouteStop {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitRouteStop_free.cast());
 
-  MasstransitRouteStopImpl.fromNativePtr(this._ptr) {
+  MasstransitRouteStopImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1707,7 +1707,7 @@ final mapkit_geometry_point.PointNative Function(
     toPlatform:
         '(val) => MasstransitTransferStopImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransferStop')
-final class MasstransitTransferStopImpl implements MasstransitTransferStop {
+final class MasstransitTransferStopImpl extends MasstransitTransferStop {
   MasstransitTransferStopImpl(
       MasstransitRouteStop routeStop,
       core.List<transport_masstransit_transport.MasstransitTransport>
@@ -1730,7 +1730,7 @@ final class MasstransitTransferStopImpl implements MasstransitTransferStop {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitTransferStop_free.cast());
 
-  MasstransitTransferStopImpl.fromNativePtr(this._ptr) {
+  MasstransitTransferStopImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1798,7 +1798,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => MasstransitTransferImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTransfer')
-final class MasstransitTransferImpl implements MasstransitTransfer {
+final class MasstransitTransferImpl extends MasstransitTransfer {
   MasstransitTransferImpl(
       core.List<MasstransitConstructionSegment> constructions,
       MasstransitTransferStop transferStop)
@@ -1819,7 +1819,7 @@ final class MasstransitTransferImpl implements MasstransitTransfer {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitTransfer_free.cast());
 
-  MasstransitTransferImpl.fromNativePtr(this._ptr) {
+  MasstransitTransferImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1885,7 +1885,7 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => MasstransitTaxiImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitTaxi')
-final class MasstransitTaxiImpl implements MasstransitTaxi {
+final class MasstransitTaxiImpl extends MasstransitTaxi {
   MasstransitTaxiImpl(
       core.List<mapkit_navigation_jam_segment.JamSegment> jamSegments)
       : this.fromNativePtr(_MasstransitTaxi_init(mapkit_navigation_jam_segment
@@ -1899,7 +1899,7 @@ final class MasstransitTaxiImpl implements MasstransitTaxi {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_MasstransitTaxi_free.cast());
 
-  MasstransitTaxiImpl.fromNativePtr(this._ptr) {
+  MasstransitTaxiImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1953,20 +1953,24 @@ final ffi.Pointer<ffi.Void> Function(
     toPlatform:
         '(val) => MasstransitSectionMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitSectionMetadata')
-final class MasstransitSectionMetadataImpl
-    implements MasstransitSectionMetadata {
+final class MasstransitSectionMetadataImpl extends MasstransitSectionMetadata {
   MasstransitSectionMetadataImpl(
       transport_masstransit_weight.MasstransitWeight weight,
       MasstransitSectionMetadataSectionData data,
       transport_masstransit_travel_estimation.MasstransitTravelEstimation?
           estimation,
-      core.int legIndex)
+      core.int legIndex,
+      core.List<transport_masstransit_fare.MasstransitSectionPaymentOption>
+          paymentOptions)
       : this.fromNativePtr(_MasstransitSectionMetadata_init(
             transport_masstransit_weight.MasstransitWeightImpl.toNative(weight),
             MasstransitSectionMetadataSectionDataImpl.toNative(data),
             transport_masstransit_travel_estimation
                 .MasstransitTravelEstimationImpl.toPointer(estimation),
-            legIndex));
+            legIndex,
+            transport_masstransit_fare
+                    .MasstransitSectionPaymentOptionContainerExtension
+                .toNativeVector(paymentOptions)));
 
   @core.override
   late final weight =
@@ -1981,12 +1985,16 @@ final class MasstransitSectionMetadataImpl
           .fromPointer(_MasstransitSectionMetadata_get_estimation(_ptr));
   @core.override
   late final legIndex = _MasstransitSectionMetadata_get_legIndex(_ptr);
+  @core.override
+  late final paymentOptions = transport_masstransit_fare
+          .MasstransitSectionPaymentOptionContainerExtension
+      .toPlatformVector(_MasstransitSectionMetadata_get_paymentOptions(_ptr));
 
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitSectionMetadata_free.cast());
 
-  MasstransitSectionMetadataImpl.fromNativePtr(this._ptr) {
+  MasstransitSectionMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -2025,15 +2033,17 @@ final ffi.Pointer<ffi.Void> Function(
     transport_masstransit_weight.MasstransitWeightNative,
     MasstransitSectionMetadataSectionDataNative,
     ffi.Pointer<ffi.Void>,
-    core
-        .int) _MasstransitSectionMetadata_init = lib.library
+    core.int,
+    ffi
+        .Pointer<ffi.Void>) _MasstransitSectionMetadata_init = lib.library
     .lookup<
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(
                     transport_masstransit_weight.MasstransitWeightNative,
                     MasstransitSectionMetadataSectionDataNative,
                     ffi.Pointer<ffi.Void>,
-                    ffi.Uint32)>>(
+                    ffi.Uint32,
+                    ffi.Pointer<ffi.Void>)>>(
         'mappable_flutter_transport_masstransit_MasstransitSectionMetadata_init')
     .asFunction(isLeaf: true);
 
@@ -2070,6 +2080,15 @@ final core.int Function(
     .library
     .lookup<ffi.NativeFunction<ffi.Uint32 Function(ffi.Pointer<ffi.Void>)>>(
         'mappable_flutter_transport_masstransit_MasstransitSectionMetadata_get_legIndex')
+    .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitSectionMetadata_get_paymentOptions = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'mappable_flutter_transport_masstransit_MasstransitSectionMetadata_get_paymentOptions')
     .asFunction(isLeaf: true);
 
 final class _MasstransitSectionMetadataSectionDataNativeData extends ffi.Union {
@@ -2226,7 +2245,7 @@ final MasstransitSectionMetadataSectionDataNative Function(
     toPlatform:
         '(val) => MasstransitRouteSettingsImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitRouteSettings')
-final class MasstransitRouteSettingsImpl implements MasstransitRouteSettings {
+final class MasstransitRouteSettingsImpl extends MasstransitRouteSettings {
   MasstransitRouteSettingsImpl(
       core.List<core.String> avoidTypes, core.List<core.String> acceptTypes)
       : this.fromNativePtr(_MasstransitRouteSettings_init(
@@ -2244,7 +2263,7 @@ final class MasstransitRouteSettingsImpl implements MasstransitRouteSettings {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitRouteSettings_free.cast());
 
-  MasstransitRouteSettingsImpl.fromNativePtr(this._ptr) {
+  MasstransitRouteSettingsImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -2352,7 +2371,7 @@ extension MasstransitComfortTagImpl on MasstransitComfortTag {
     toPlatform:
         '(val) => MasstransitRouteMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitRouteMetadata')
-final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
+final class MasstransitRouteMetadataImpl extends MasstransitRouteMetadata {
   MasstransitRouteMetadataImpl(
       transport_masstransit_weight.MasstransitWeight weight,
       MasstransitRouteSettings? settings,
@@ -2362,7 +2381,9 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
       core.String? routeId,
       transport_masstransit_flags.MasstransitFlags? flags,
       core.List<MasstransitComfortTag> comfortTags,
-      MasstransitStairsSummary stairsSummary)
+      MasstransitStairsSummary stairsSummary,
+      core.List<transport_masstransit_fare.MasstransitRoutePaymentOption>
+          paymentOptions)
       : this.fromNativePtr(_MasstransitRouteMetadata_init(
             transport_masstransit_weight.MasstransitWeightImpl.toNative(weight),
             MasstransitRouteSettingsImpl.getNativePtr(settings),
@@ -2374,7 +2395,10 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
             to_native.toNativePtrString(routeId),
             transport_masstransit_flags.MasstransitFlagsImpl.toPointer(flags),
             MasstransitComfortTagContainerExtension.toNativeVector(comfortTags),
-            MasstransitStairsSummaryImpl.toNative(stairsSummary)));
+            MasstransitStairsSummaryImpl.toNative(stairsSummary),
+            transport_masstransit_fare
+                    .MasstransitRoutePaymentOptionContainerExtension
+                .toNativeVector(paymentOptions)));
 
   @core.override
   late final weight =
@@ -2405,6 +2429,10 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
   @core.override
   late final stairsSummary = MasstransitStairsSummaryImpl.fromNative(
       _MasstransitRouteMetadata_get_stairsSummary(_ptr));
+  @core.override
+  late final paymentOptions =
+      transport_masstransit_fare.MasstransitRoutePaymentOptionContainerExtension
+          .toPlatformVector(_MasstransitRouteMetadata_get_paymentOptions(_ptr));
 
   @core.override
   final _MasstransitRouteMetadataFactory runtimeFactory =
@@ -2414,7 +2442,7 @@ final class MasstransitRouteMetadataImpl implements MasstransitRouteMetadata {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitRouteMetadata_free.cast());
 
-  MasstransitRouteMetadataImpl.fromNativePtr(this._ptr) {
+  MasstransitRouteMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -2500,28 +2528,30 @@ final _MasstransitRouteMetadata_free = lib.library
         'mappable_flutter_transport_masstransit_MasstransitRouteMetadata_free');
 
 final ffi.Pointer<ffi.Void> Function(
-        transport_masstransit_weight.MasstransitWeightNative,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        ffi.Pointer<ffi.Void>,
-        MasstransitStairsSummaryNative) _MasstransitRouteMetadata_init =
-    lib.library
-        .lookup<
-                ffi.NativeFunction<
-                    ffi.Pointer<ffi.Void> Function(
-                        transport_masstransit_weight.MasstransitWeightNative,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        ffi.Pointer<ffi.Void>,
-                        MasstransitStairsSummaryNative)>>(
-            'mappable_flutter_transport_masstransit_MasstransitRouteMetadata_init')
-        .asFunction(isLeaf: true);
+    transport_masstransit_weight.MasstransitWeightNative,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    ffi.Pointer<ffi.Void>,
+    MasstransitStairsSummaryNative,
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteMetadata_init = lib.library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(
+                    transport_masstransit_weight.MasstransitWeightNative,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    ffi.Pointer<ffi.Void>,
+                    MasstransitStairsSummaryNative,
+                    ffi.Pointer<ffi.Void>)>>(
+        'mappable_flutter_transport_masstransit_MasstransitRouteMetadata_init')
+    .asFunction(isLeaf: true);
 
 final transport_masstransit_weight.MasstransitWeightNative Function(
     ffi
@@ -2593,13 +2623,22 @@ final MasstransitStairsSummaryNative Function(
                     ffi.Pointer<ffi.Void>)>>(
         'mappable_flutter_transport_masstransit_MasstransitRouteMetadata_get_stairsSummary')
     .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(
+    ffi
+        .Pointer<ffi.Void>) _MasstransitRouteMetadata_get_paymentOptions = lib
+    .library
+    .lookup<
+            ffi.NativeFunction<
+                ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+        'mappable_flutter_transport_masstransit_MasstransitRouteMetadata_get_paymentOptions')
+    .asFunction(isLeaf: true);
 
 @bindings_annotations.ContainerData(
     toNative: 'MasstransitSectionImpl.getNativePtr',
     toPlatform:
         '(val) => MasstransitSectionImpl.fromPointer(val, needFree: false)',
     platformType: 'MasstransitSection')
-final class MasstransitSectionImpl implements MasstransitSection {
+final class MasstransitSectionImpl extends MasstransitSection {
   MasstransitSectionImpl(
       MasstransitSectionMetadata metadata,
       mapkit_geometry_geometry.Subpolyline geometry,
@@ -2630,7 +2669,7 @@ final class MasstransitSectionImpl implements MasstransitSection {
   static final _finalizer =
       ffi.NativeFinalizer(_MasstransitSection_free.cast());
 
-  MasstransitSectionImpl.fromNativePtr(this._ptr) {
+  MasstransitSectionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -2788,10 +2827,10 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)
     _MasstransitRouteJamsListener_new = lib.library
         .lookup<
-            ffi.NativeFunction<
-                ffi.Pointer<ffi.Void> Function(
-                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>,
-                    ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>('mappable_flutter_transport_masstransit_MasstransitRouteJamsListener_new')
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(
+                        ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>, ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>(
+            'mappable_flutter_transport_masstransit_MasstransitRouteJamsListener_new')
         .asFunction(isLeaf: true);
 
 final _MasstransitRouteJamsListener_free = lib.library.lookup<

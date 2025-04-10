@@ -6,7 +6,7 @@ part of 'business_photo_object_metadata.dart';
         '(val) => SearchBusinessPhotoObjectMetadataImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessPhotoObjectMetadata')
 final class SearchBusinessPhotoObjectMetadataImpl
-    implements SearchBusinessPhotoObjectMetadata {
+    extends SearchBusinessPhotoObjectMetadata {
   SearchBusinessPhotoObjectMetadataImpl(
       core.int count, core.List<SearchBusinessPhotoObjectMetadataPhoto> photos)
       : this.fromNativePtr(_SearchBusinessPhotoObjectMetadata_init(
@@ -29,7 +29,7 @@ final class SearchBusinessPhotoObjectMetadataImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessPhotoObjectMetadata_free.cast());
 
-  SearchBusinessPhotoObjectMetadataImpl.fromNativePtr(this._ptr) {
+  SearchBusinessPhotoObjectMetadataImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -149,7 +149,7 @@ final ffi.Pointer<ffi.Void> Function(
         '(val) => SearchBusinessPhotoObjectMetadataPhotoImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessPhotoObjectMetadataPhoto')
 final class SearchBusinessPhotoObjectMetadataPhotoImpl
-    implements SearchBusinessPhotoObjectMetadataPhoto {
+    extends SearchBusinessPhotoObjectMetadataPhoto {
   SearchBusinessPhotoObjectMetadataPhotoImpl(core.String id,
       core.List<SearchBusinessPhotoObjectMetadataPhotoPhotoLink> links)
       : this.fromNativePtr(_SearchBusinessPhotoObjectMetadataPhoto_init(
@@ -170,7 +170,8 @@ final class SearchBusinessPhotoObjectMetadataPhotoImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessPhotoObjectMetadataPhoto_free.cast());
 
-  SearchBusinessPhotoObjectMetadataPhotoImpl.fromNativePtr(this._ptr) {
+  SearchBusinessPhotoObjectMetadataPhotoImpl.fromNativePtr(this._ptr)
+      : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -246,7 +247,7 @@ final ffi.Pointer<ffi.Void> Function(
         '(val) => SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessPhotoObjectMetadataPhotoPhotoLink')
 final class SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl
-    implements SearchBusinessPhotoObjectMetadataPhotoPhotoLink {
+    extends SearchBusinessPhotoObjectMetadataPhotoPhotoLink {
   SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl(
       core.String? type, core.String uri)
       : this.fromNativePtr(
@@ -265,7 +266,8 @@ final class SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl
   static final _finalizer = ffi.NativeFinalizer(
       _SearchBusinessPhotoObjectMetadataPhotoPhotoLink_free.cast());
 
-  SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromNativePtr(this._ptr) {
+  SearchBusinessPhotoObjectMetadataPhotoPhotoLinkImpl.fromNativePtr(this._ptr)
+      : super._() {
     _finalizer.attach(this, _ptr);
   }
 

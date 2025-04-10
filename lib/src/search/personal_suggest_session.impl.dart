@@ -148,7 +148,8 @@ final ffi.Pointer<ffi.Void> Function(
             ffi.NativeFunction<
                 ffi.Pointer<ffi.Void> Function(
                     ffi.Pointer<
-                        ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>,
+                        ffi
+                        .NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>)>>,
                     ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>)>>)>>('mappable_flutter_search_DeleteAllPersonalSuggestSession_PersonalSuggestListener_new')
         .asFunction(isLeaf: true);
 

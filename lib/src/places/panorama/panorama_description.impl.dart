@@ -59,7 +59,7 @@ extension PanoramaImageSizeImpl on PanoramaImageSize {
     toPlatform:
         '(val) => PanoramaTileLevelImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaTileLevel')
-final class PanoramaTileLevelImpl implements PanoramaTileLevel {
+final class PanoramaTileLevelImpl extends PanoramaTileLevel {
   PanoramaTileLevelImpl(core.int level, PanoramaImageSize imageSize)
       : this.fromNativePtr(_PanoramaTileLevel_init(
             level, PanoramaImageSizeImpl.toNative(imageSize)));
@@ -73,7 +73,7 @@ final class PanoramaTileLevelImpl implements PanoramaTileLevel {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_PanoramaTileLevel_free.cast());
 
-  PanoramaTileLevelImpl.fromNativePtr(this._ptr) {
+  PanoramaTileLevelImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -190,7 +190,7 @@ extension PanoramaPositionImpl on PanoramaPosition {
     toPlatform:
         '(val) => PanoramaTextMarkerImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaTextMarker')
-final class PanoramaTextMarkerImpl implements PanoramaTextMarker {
+final class PanoramaTextMarkerImpl extends PanoramaTextMarker {
   PanoramaTextMarkerImpl(mapkit_geometry_direction.Direction angularPosition,
       core.String shortLabel, core.String fullLabel)
       : this.fromNativePtr(_PanoramaTextMarker_init(
@@ -213,7 +213,7 @@ final class PanoramaTextMarkerImpl implements PanoramaTextMarker {
   static final _finalizer =
       ffi.NativeFinalizer(_PanoramaTextMarker_free.cast());
 
-  PanoramaTextMarkerImpl.fromNativePtr(this._ptr) {
+  PanoramaTextMarkerImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -290,7 +290,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => PanoramaCompanyMarkerImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaCompanyMarker')
-final class PanoramaCompanyMarkerImpl implements PanoramaCompanyMarker {
+final class PanoramaCompanyMarkerImpl extends PanoramaCompanyMarker {
   PanoramaCompanyMarkerImpl(mapkit_geometry_direction.Direction angularPosition,
       core.String label, core.String iconId, core.String permalink)
       : this.fromNativePtr(_PanoramaCompanyMarker_init(
@@ -317,7 +317,7 @@ final class PanoramaCompanyMarkerImpl implements PanoramaCompanyMarker {
   static final _finalizer =
       ffi.NativeFinalizer(_PanoramaCompanyMarker_free.cast());
 
-  PanoramaCompanyMarkerImpl.fromNativePtr(this._ptr) {
+  PanoramaCompanyMarkerImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -405,7 +405,7 @@ final native_types.NativeString Function(
     toPlatform:
         '(val) => PanoramaIconMarkerImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaIconMarker')
-final class PanoramaIconMarkerImpl implements PanoramaIconMarker {
+final class PanoramaIconMarkerImpl extends PanoramaIconMarker {
   PanoramaIconMarkerImpl(
       mapkit_geometry_direction.Direction angularPosition, core.String iconId)
       : this.fromNativePtr(_PanoramaIconMarker_init(
@@ -424,7 +424,7 @@ final class PanoramaIconMarkerImpl implements PanoramaIconMarker {
   static final _finalizer =
       ffi.NativeFinalizer(_PanoramaIconMarker_free.cast());
 
-  PanoramaIconMarkerImpl.fromNativePtr(this._ptr) {
+  PanoramaIconMarkerImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -492,7 +492,7 @@ final native_types.NativeString Function(ffi.Pointer<ffi.Void>)
     toPlatform:
         '(val) => PanoramaIconConnectionImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaIconConnection')
-final class PanoramaIconConnectionImpl implements PanoramaIconConnection {
+final class PanoramaIconConnectionImpl extends PanoramaIconConnection {
   PanoramaIconConnectionImpl(
       mapkit_geometry_direction.Direction angularPosition,
       core.String iconId,
@@ -517,7 +517,7 @@ final class PanoramaIconConnectionImpl implements PanoramaIconConnection {
   static final _finalizer =
       ffi.NativeFinalizer(_PanoramaIconConnection_free.cast());
 
-  PanoramaIconConnectionImpl.fromNativePtr(this._ptr) {
+  PanoramaIconConnectionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -595,7 +595,7 @@ final native_types.NativeString Function(
     toPlatform:
         '(val) => PanoramaArrowConnectionImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaArrowConnection')
-final class PanoramaArrowConnectionImpl implements PanoramaArrowConnection {
+final class PanoramaArrowConnectionImpl extends PanoramaArrowConnection {
   PanoramaArrowConnectionImpl(
       mapkit_geometry_direction.Direction angularPosition,
       core.String label,
@@ -625,7 +625,7 @@ final class PanoramaArrowConnectionImpl implements PanoramaArrowConnection {
   static final _finalizer =
       ffi.NativeFinalizer(_PanoramaArrowConnection_free.cast());
 
-  PanoramaArrowConnectionImpl.fromNativePtr(this._ptr) {
+  PanoramaArrowConnectionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -819,7 +819,7 @@ extension PanoramaAngularBoundingBoxImpl on PanoramaAngularBoundingBox {
     toPlatform:
         '(val) => PanoramaDescriptionImpl.fromPointer(val, needFree: false)',
     platformType: 'PanoramaDescription')
-final class PanoramaDescriptionImpl implements PanoramaDescription {
+final class PanoramaDescriptionImpl extends PanoramaDescription {
   PanoramaDescriptionImpl(
       core.String panoramaId,
       PanoramaPosition? position,
@@ -901,7 +901,7 @@ final class PanoramaDescriptionImpl implements PanoramaDescription {
   static final _finalizer =
       ffi.NativeFinalizer(_PanoramaDescription_free.cast());
 
-  PanoramaDescriptionImpl.fromNativePtr(this._ptr) {
+  PanoramaDescriptionImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -1368,14 +1368,18 @@ final void Function(
     .asFunction(isLeaf: true);
 
 final ffi.Pointer<ffi.Void> Function(
-        ffi.Pointer<
-            ffi.NativeFunction<
-                ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>,
-                    native_types.NativeString, ffi.Double)>>)
-    _PanoramaIconImageFactory_new = lib.library
-        .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
-            'mappable_flutter_places_panorama_PanoramaIconImageFactory_new')
-        .asFunction(isLeaf: true);
+    ffi.Pointer<
+        ffi.NativeFunction<
+            ffi.Void Function(
+                ffi.Pointer<ffi.Void>,
+                ffi.Pointer<ffi.Void>,
+                native_types.NativeString,
+                ffi.Double)>>) _PanoramaIconImageFactory_new = lib.library
+    .lookup<
+            ffi
+            .NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<ffi.Void Function(ffi.Pointer<ffi.Void>, ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
+        'mappable_flutter_places_panorama_PanoramaIconImageFactory_new')
+    .asFunction(isLeaf: true);
 
 final void Function(ffi.Pointer<ffi.Void>) _PanoramaIconImageFactory_free = lib
     .library
@@ -1495,7 +1499,9 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Uint32,
                 ffi.Uint32,
                 ffi.Uint32)>>) _PanoramaTileUrlProvider_new = lib.library
-    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Uint32, ffi.Uint32, ffi.Uint32)>>)>>(
+    .lookup<
+            ffi
+            .NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Uint32, ffi.Uint32, ffi.Uint32)>>)>>(
         'mappable_flutter_places_panorama_PanoramaTileUrlProvider_new')
     .asFunction(isLeaf: true);
 
@@ -1603,7 +1609,9 @@ final ffi.Pointer<ffi.Void> Function(
                 ffi.Pointer<ffi.Void>,
                 native_types.NativeString,
                 ffi.Double)>>) _PanoramaIconUrlProvider_new = lib.library
-    .lookup<ffi.NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
+    .lookup<
+            ffi
+            .NativeFunction<ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.NativeFunction<native_types.NativeString Function(ffi.Pointer<ffi.Void>, native_types.NativeString, ffi.Double)>>)>>(
         'mappable_flutter_places_panorama_PanoramaIconUrlProvider_new')
     .asFunction(isLeaf: true);
 

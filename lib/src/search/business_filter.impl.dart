@@ -5,13 +5,15 @@ part of 'business_filter.dart';
     toPlatform:
         '(val) => SearchBusinessFilterImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessFilter')
-final class SearchBusinessFilterImpl implements SearchBusinessFilter {
+final class SearchBusinessFilterImpl extends SearchBusinessFilter {
   SearchBusinessFilterImpl(
       core.String id,
       core.String? name,
       core.bool? disabled,
       mapkit_image.Image? iconLight,
       mapkit_image.Image? iconDark,
+      mapkit_image.Image? iconAfterLight,
+      mapkit_image.Image? iconAfterDark,
       core.bool? singleSelect,
       SearchBusinessFilterValues values)
       : this.fromNativePtr(_SearchBusinessFilter_init(
@@ -20,6 +22,8 @@ final class SearchBusinessFilterImpl implements SearchBusinessFilter {
             to_native.toNativePtrBool(disabled),
             mapkit_image.ImageImpl.getNativePtr(iconLight),
             mapkit_image.ImageImpl.getNativePtr(iconDark),
+            mapkit_image.ImageImpl.getNativePtr(iconAfterLight),
+            mapkit_image.ImageImpl.getNativePtr(iconAfterDark),
             to_native.toNativePtrBool(singleSelect),
             SearchBusinessFilterValuesImpl.toNative(values)));
 
@@ -39,6 +43,12 @@ final class SearchBusinessFilterImpl implements SearchBusinessFilter {
   late final iconDark = mapkit_image.ImageImpl.fromOptionalPtr(
       _SearchBusinessFilter_get_iconDark(_ptr));
   @core.override
+  late final iconAfterLight = mapkit_image.ImageImpl.fromOptionalPtr(
+      _SearchBusinessFilter_get_iconAfterLight(_ptr));
+  @core.override
+  late final iconAfterDark = mapkit_image.ImageImpl.fromOptionalPtr(
+      _SearchBusinessFilter_get_iconAfterDark(_ptr));
+  @core.override
   late final singleSelect = to_platform
       .toPlatformFromPointerBool(_SearchBusinessFilter_get_singleSelect(_ptr));
   @core.override
@@ -49,7 +59,7 @@ final class SearchBusinessFilterImpl implements SearchBusinessFilter {
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessFilter_free.cast());
 
-  SearchBusinessFilterImpl.fromNativePtr(this._ptr) {
+  SearchBusinessFilterImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -90,12 +100,16 @@ final ffi.Pointer<ffi.Void> Function(
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
         ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
+        ffi.Pointer<ffi.Void>,
         SearchBusinessFilterValuesNative) _SearchBusinessFilter_init =
     lib.library
         .lookup<
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(
                         native_types.NativeString,
+                        ffi.Pointer<ffi.Void>,
+                        ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
                         ffi.Pointer<ffi.Void>,
@@ -139,6 +153,20 @@ final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
                 ffi.NativeFunction<
                     ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
             'mappable_flutter_search_SearchBusinessFilter_get_iconDark')
+        .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilter_get_iconAfterLight = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'mappable_flutter_search_SearchBusinessFilter_get_iconAfterLight')
+        .asFunction(isLeaf: true);
+final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
+    _SearchBusinessFilter_get_iconAfterDark = lib.library
+        .lookup<
+                ffi.NativeFunction<
+                    ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)>>(
+            'mappable_flutter_search_SearchBusinessFilter_get_iconAfterDark')
         .asFunction(isLeaf: true);
 final ffi.Pointer<ffi.Void> Function(ffi.Pointer<ffi.Void>)
     _SearchBusinessFilter_get_singleSelect = lib.library
@@ -227,7 +255,7 @@ extension SearchBusinessFilterBooleanValueImpl
         '(val) => SearchBusinessFilterEnumValueImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchBusinessFilterEnumValue')
 final class SearchBusinessFilterEnumValueImpl
-    implements SearchBusinessFilterEnumValue {
+    extends SearchBusinessFilterEnumValue {
   SearchBusinessFilterEnumValueImpl(search_feature.SearchFeatureEnumValue value,
       core.bool? selected, core.bool? disabled)
       : this.fromNativePtr(_SearchBusinessFilterEnumValue_init(
@@ -249,7 +277,7 @@ final class SearchBusinessFilterEnumValueImpl
   static final _finalizer =
       ffi.NativeFinalizer(_SearchBusinessFilterEnumValue_free.cast());
 
-  SearchBusinessFilterEnumValueImpl.fromNativePtr(this._ptr) {
+  SearchBusinessFilterEnumValueImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 
@@ -571,7 +599,7 @@ final SearchBusinessFilterValuesNative Function(
     toPlatform:
         '(val) => SearchFilterSetImpl.fromPointer(val, needFree: false)',
     platformType: 'SearchFilterSet')
-final class SearchFilterSetImpl implements SearchFilterSet {
+final class SearchFilterSetImpl extends SearchFilterSet {
   SearchFilterSetImpl(core.List<core.String> ids)
       : this.fromNativePtr(
             _SearchFilterSet_init(to_native.toNativeVectorString(ids)));
@@ -582,7 +610,7 @@ final class SearchFilterSetImpl implements SearchFilterSet {
   final ffi.Pointer<ffi.Void> _ptr;
   static final _finalizer = ffi.NativeFinalizer(_SearchFilterSet_free.cast());
 
-  SearchFilterSetImpl.fromNativePtr(this._ptr) {
+  SearchFilterSetImpl.fromNativePtr(this._ptr) : super._() {
     _finalizer.attach(this, _ptr);
   }
 

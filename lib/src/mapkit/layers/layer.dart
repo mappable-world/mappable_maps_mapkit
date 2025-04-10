@@ -4,8 +4,6 @@ import 'package:mappable_maps_mapkit/src/bindings/common/library.dart' as lib;
 import 'dart:core' as core;
 import 'package:mappable_maps_mapkit/src/bindings/annotations/annotations.dart'
     as bindings_annotations;
-import 'package:mappable_maps_mapkit/src/bindings/common/async.dart'
-    show runWithBlockUi;
 import 'package:mappable_maps_mapkit/src/bindings/common/exception.dart'
     as exception;
 import 'package:mappable_maps_mapkit/src/bindings/common/string_map.dart'
@@ -28,6 +26,5 @@ abstract class Layer implements ffi.Finalizable {
 
   mapkit_layers_data_source_layer.DataSourceLayer dataSourceLayer();
 
-  /// Usable only in [runWithBlockUi] or listener handlers.
   core.bool isValid();
 }
