@@ -2,6 +2,4 @@ export 'package:mappable_maps_mapkit/src/mapkit/map/tile_data_source_builder.dar
     hide
         CreateTileDataSourceImpl,
         TileDataSourceBuilderImpl,
-        TileDataSourceBuilderContainerExtension,
-        BaseTileDataSourceBuilderImpl,
-        BaseTileDataSourceBuilderContainerExtension;
+        TileDataSourceBuilderContainerExtension;
