@@ -2,6 +2,8 @@ export 'package:mappable_maps_mapkit/src/transport/masstransit/transport.dart'
     hide
         MasstransitTransportTransportThreadImpl,
         MasstransitTransportContainerExtension,
+        MasstransitTransportStopImpl,
+        MasstransitTransportStopContainerExtension,
         MasstransitTransportImpl,
         MasstransitBoardingOptionsBoardingAreaContainerExtension,
         MasstransitTransportThreadAlertClosedUntilNative,
